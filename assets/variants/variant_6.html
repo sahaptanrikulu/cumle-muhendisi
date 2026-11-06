@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="UTF-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    width: 1600px; height: 900px; background: #0A192F;
+    background-image: 
+      linear-gradient(rgba(56, 189, 248, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(56, 189, 248, 0.1) 1px, transparent 1px),
+      linear-gradient(rgba(56, 189, 248, 0.03) 10px, transparent 10px),
+      linear-gradient(90deg, rgba(56, 189, 248, 0.03) 10px, transparent 10px);
+    background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+    font-family: ui-monospace, "SF Mono", "Segoe UI Mono", monospace;
+    color: #E2E8F0; padding: 48px 64px; display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .header { border-bottom: 2px solid #38BDF8; padding-bottom: 20px; display: flex; justify-content: space-between; align-items: flex-end; }
+  .title { font-size: 36px; font-weight: 900; color: #38BDF8; letter-spacing: 2px; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin: 24px 0; }
+  .schematic-box { border: 1.5px dashed #38BDF8; border-radius: 8px; padding: 26px; background: rgba(10, 25, 47, 0.7); position: relative; }
+  .dim-line { border-top: 1px dashed #38BDF8; margin: 15px 0; text-align: center; font-size: 12px; color: #38BDF8; position: relative; }
+  .dim-line span { background: #0A192F; padding: 0 10px; position: relative; top: -9px; }
+  .sample { background: rgba(0,0,0,0.5); border: 1px solid rgba(56,189,248,0.3); border-radius: 6px; padding: 18px; font-size: 14.5px; line-height: 1.6; }
+  .rules { margin-top: 16px; font-size: 13.5px; line-height: 1.6; color: #94A3B8; }
+  .footer { border-top: 2px solid #38BDF8; padding-top: 18px; display: flex; justify-content: space-between; font-size: 13px; color: #38BDF8; }
+</style>
+</head><body>
+  <div class="header">
+    <div>
+      <div class="title">📐 CÜMLE MÜHENDİSİ // DİL ŞARTNAMESİ</div>
+      <div style="font-size:13px; color:#94A3B8; margin-top:4px;">PROJE KODU: CM-TR-V2 • MİMARİ SENTAKS PROTOKOLÜ</div>
+    </div>
+    <div style="border:1px solid #38BDF8; padding:6px 14px; font-size:12px; color:#38BDF8;">TOLERANS: 0 AI HATASI</div>
+  </div>
+  <div class="grid">
+    <div class="schematic-box" style="border-color:#EF4444;">
+      <div style="color:#EF4444; font-weight:800; font-size:13px; margin-bottom:10px;">[ŞEMA A] STATİK HATALI YAPI (ROBOTİK)</div>
+      <div class="sample" style="color:#FCA5A5;">
+        "Şirketimiz dijital dönüşüm kapsamında önemli bir adım atmaktadır ve bulut altyapımızın kurulması süreçlerin yürütülmesine katkı sağlamaktadır..."
+      </div>
+      <div class="dim-line"><span>▲ 16 KELİME • AŞIRI YÜKLEME ▲</span></div>
+      <div class="rules">
+        - HATA 01: Saatin tiktakı gibi 15-20 kelimelik mekanik mimari<br>
+        - HATA 02: İngilizce SVO taklidi, arkadan dolanan yan cümleler<br>
+        - HATA 03: Kof taşıyıcı fiiller ("gerçekleştirmek", "sağlamak")<br>
+        - HATA 04: Sonu gelmeyen -mektedir / -maktadır korozyonu
+      </div>
+    </div>
+    <div class="schematic-box" style="border-color:#10B981;">
+      <div style="color:#10B981; font-weight:800; font-size:13px; margin-bottom:10px;">[ŞEMA B] MÜHENDİSLİK MONTAJI (ÖZ TÜRKÇE)</div>
+      <div class="sample" style="color:#6EE7B7; border-color:#10B981;">
+        "Şirket içi dijital altyapımızı buluta taşıyarak günlük işlerimizi çok daha hızlı ve pürüzsüz yürütmeye başladık."
+      </div>
+      <div class="dim-line" style="border-color:#10B981;"><span style="color:#10B981;">▼ %54 KELİME TASARRUFU • MAKSİMUM DAYANIM ▼</span></div>
+      <div class="rules" style="color:#A7F3D0;">
+        + ÇÖZÜM 01: Sola dallanma sentaksı (sıfat-fiille doğrudan bağlama)<br>
+        + ÇÖZÜM 02: Ulaç sistemiyle birbirine kenetlenen akıcı eylemler<br>
+        + ÇÖZÜM 03: Güçlü ve aktif yüklemlerle kurulan sağlam omurga<br>
+        + ÇÖZÜM 04: Sektörel terim sadakati (SDI, NFPA, fire-rated)
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div>ÇEKİRDEK: PYTHON DETERMINISTIC CLI ENGINE • MIT LİSANSI</div>
+    <div>REPO: github.com/sahaptanrikulu/cumle-muhendisi</div>
+  </div>
+</body></html>

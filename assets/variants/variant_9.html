@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="UTF-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    width: 1600px; height: 900px; background: #181824;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: #F8FAFC; padding: 40px 60px; display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .ide-window {
+    background: #1E1E2E; border: 1px solid #313244; border-radius: 16px;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.5); overflow: hidden; display: flex; flex-direction: column; flex: 1; margin: 15px 0;
+  }
+  .title-bar { background: #181825; padding: 12px 18px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #313244; }
+  .dots { display: flex; gap: 8px; }
+  .dot { width: 12px; height: 12px; border-radius: 50%; }
+  .tabs { display: flex; background: #181825; border-bottom: 1px solid #313244; }
+  .tab { padding: 10px 22px; font-size: 13.5px; font-family: monospace; border-right: 1px solid #313244; color: #A6ADC8; }
+  .tab.active { background: #1E1E2E; color: #CDD6F4; border-top: 2px solid #89B4FA; }
+  .editor-body { display: grid; grid-template-columns: 1fr 1fr; flex: 1; font-family: ui-monospace, monospace; font-size: 15px; }
+  .pane { padding: 24px; line-height: 1.7; }
+  .pane-left { border-right: 1px solid #313244; background: rgba(243, 139, 168, 0.05); }
+  .pane-right { background: rgba(166, 227, 161, 0.05); }
+  .diff-del { background: rgba(243, 139, 168, 0.2); color: #F38BA8; padding: 2px 6px; border-radius: 4px; }
+  .diff-add { background: rgba(166, 227, 161, 0.2); color: #A6E3A1; padding: 2px 6px; border-radius: 4px; font-weight: bold; }
+  .terminal-drawer { background: #11111B; border-top: 1px solid #313244; padding: 12px 20px; font-family: monospace; font-size: 13px; color: #A6ADC8; display: flex; justify-content: space-between; }
+</style>
+</head><body>
+  <div style="display:flex; justify-content:space-between; align-items:center;">
+    <div style="font-size:26px; font-weight:800; display:flex; align-items:center; gap:10px;">
+      💻 CÜMLE MÜHENDİSİ // IDE DİFF GÖRÜNÜMÜ
+    </div>
+    <div style="color:#89B4FA; font-weight:600; font-size:14px;">AST PARSER & LINGUISTIC REFACTOR ENGINE</div>
+  </div>
+  <div class="ide-window">
+    <div class="title-bar">
+      <div class="dots">
+        <div class="dot" style="background:#F38BA8;"></div>
+        <div class="dot" style="background:#F9E2AF;"></div>
+        <div class="dot" style="background:#A6E3A1;"></div>
+      </div>
+      <div style="font-size:13px; color:#6C7086; font-family:monospace;">cumle-muhendisi — git diff HEAD~1</div>
+      <div></div>
+    </div>
+    <div class="tabs">
+      <div class="tab">metin_ham_ai.md</div>
+      <div class="tab active">metin_cumle_muhendisi.md (Onarılmış)</div>
+    </div>
+    <div class="editor-body">
+      <div class="pane pane-left">
+        <div style="color:#F38BA8; font-weight:bold; margin-bottom:12px;">// ÖNCE: ROBOTİK SÖZ DİZİMİ</div>
+        <p>1 | <span class="diff-del">- "Şirketimiz dijital dönüşüm kapsamında</span></p>
+        <p>2 | <span class="diff-del">- önemli bir adım atmaktadır</span></p>
+        <p>3 | <span class="diff-del">- ve bulut altyapımızın kurulması</span></p>
+        <p>4 | <span class="diff-del">- süreçlerin yürütülmesine katkı sağlamaktadır..."</span></p>
+        <br>
+        <p style="color:#6C7086; font-size:13px;">// Kusurlar: 4x Kof Fiil • -mektedir Monotonluğu • Sağa Dallı Sentaks</p>
+      </div>
+      <div class="pane pane-right">
+        <div style="color:#A6E3A1; font-weight:bold; margin-bottom:12px;">// SONRA: ÖZ TÜRKÇE MİMARİSİ</div>
+        <p>1 | <span class="diff-add">+ "Şirket içi dijital altyapımızı buluta taşıyarak</span></p>
+        <p>2 | <span class="diff-add">+ günlük işlerimizi çok daha hızlı</span></p>
+        <p>3 | <span class="diff-add">+ ve pürüzsüz yürütmeye başladık."</span></p>
+        <br><br>
+        <p style="color:#A6E3A1; font-size:13px;">// Çözüm: Ulaçlı Bağlama • Güçlü Eylem • CoV 0.58 Canlı Ritim</p>
+      </div>
+    </div>
+    <div class="terminal-drawer">
+      <div>✔ 0 AI/TDK Sinyali • Burstiness CoV: 0.58 (İnsan Seviyesi) • %54 Kelime Tasarrufu</div>
+      <div style="color:#89B4FA;">Tests Passed: 100%</div>
+    </div>
+  </div>
+  <div style="display:flex; justify-content:space-between; color:#6C7086; font-size:13.5px;">
+    <div>⚡ %100 Açık Kaynak • CLI & Skill Desteği</div>
+    <div style="color:#CDD6F4; font-weight:600;">github.com/sahaptanrikulu/cumle-muhendisi</div>
+  </div>
+</body></html>

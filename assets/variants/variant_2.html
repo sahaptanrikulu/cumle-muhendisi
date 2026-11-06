@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="UTF-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    width: 1600px; height: 900px; background: #F6F3EB;
+    font-family: "Georgia", "Times New Roman", serif;
+    color: #1C1917; padding: 48px 64px; display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .header { border-bottom: 3px double #1C1917; padding-bottom: 20px; display: flex; justify-content: space-between; align-items: flex-end; }
+  .h1 { font-size: 54px; font-weight: 900; letter-spacing: -1px; text-transform: uppercase; line-height: 1; }
+  .sub { font-size: 15px; font-family: -apple-system, sans-serif; font-weight: 600; color: #78716C; margin-top: 6px; letter-spacing: 1px; }
+  .stamp { border: 2.5px solid #DC2626; color: #DC2626; padding: 6px 14px; border-radius: 4px; font-family: -apple-system, sans-serif; font-weight: 900; font-size: 14px; transform: rotate(-3deg); }
+  .main-stage { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin: 26px 0; }
+  .paper-col { background: #FFFFFF; border: 1px solid #E7E5E4; box-shadow: 4px 6px 0 rgba(0,0,0,0.06); padding: 32px; border-radius: 4px; position: relative; }
+  .col-head { font-family: -apple-system, sans-serif; font-size: 13px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; padding-bottom: 12px; border-bottom: 1px solid #E7E5E4; margin-bottom: 18px; display: flex; justify-content: space-between; }
+  .strike-box { font-size: 17px; line-height: 1.6; color: #78716C; margin-bottom: 22px; font-style: italic; }
+  .strike-box span.del { text-decoration: line-through; color: #DC2626; font-weight: bold; background: #FEE2E2; }
+  .clean-box { font-size: 18px; line-height: 1.6; color: #1C1917; margin-bottom: 22px; font-weight: 500; }
+  .notes { font-family: -apple-system, sans-serif; font-size: 14px; line-height: 1.5; color: #44403C; display: flex; flex-direction: column; gap: 8px; }
+  .notes li { list-style: none; display: flex; gap: 8px; }
+  .footer { border-top: 1px solid #1C1917; padding-top: 18px; font-family: -apple-system, sans-serif; font-size: 13.5px; display: flex; justify-content: space-between; color: #78716C; }
+</style>
+</head><body>
+  <div class="header">
+    <div>
+      <div class="h1">Cümle Mühendisi</div>
+      <div class="sub">YAPAY ZEKA YAZIMINI İNSAN KALEMİNE DÖNÜŞTÜREN REDAKSİYON ODASI</div>
+    </div>
+    <div class="stamp">EDİTÖR ONAYLI • TDK UYUMLU</div>
+  </div>
+  <div class="main-stage">
+    <div class="paper-col">
+      <div class="col-head"><span style="color:#DC2626;">KUSURLU METİN (YAPAY ZEKA)</span><span>DÜZELTME ÖNCESİ</span></div>
+      <div class="strike-box">
+        "Şirketimiz <span class="del">kapsamında</span> önemli bir adım <span class="del">atmaktadır</span> ve <span class="del">süreçlerin yürütülmesine katkı sağlamaktadır</span>. <span class="del">Sonuç olarak</span> bu <span class="del">büyük önem taşımaktadır</span>."
+      </div>
+      <ul class="notes">
+        <li><span style="color:#DC2626;">✍</span> Kırmızı kalemle çizilen kof yardımcı fiiller ve bürokratik laf kalabalığı.</li>
+        <li><span style="color:#DC2626;">✍</span> Okuru sıkan mekanik <em>"-mektedir"</em> monotonluğu.</li>
+        <li><span style="color:#DC2626;">✍</span> İngilizce kalıbı taklit eden arkadan dolambaçlı yan cümleler.</li>
+      </ul>
+    </div>
+    <div class="paper-col" style="border-top: 4px solid #059669;">
+      <div class="col-head"><span style="color:#059669;">ONARILMIŞ METİN (CÜMLE MÜHENDİSİ)</span><span>YAYINA HAZIR</span></div>
+      <div class="clean-box">
+        "Şirket içi dijital altyapımızı buluta taşıyarak günlük işlerimizi çok daha hızlı ve pürüzsüz yürütmeye başladık."
+      </div>
+      <ul class="notes">
+        <li><span style="color:#059669;">✓</span> Cümle iskeleti öz Türkçe mantığıyla doğrudan hedefe bağlandı.</li>
+        <li><span style="color:#059669;">✓</span> Ulaçlarla sağlanan doğal konuşma akıcılığı ve nefes payı.</li>
+        <li><span style="color:#059669;">✓</span> %54 kelime tasarrufu ile berrak ve vurucu anlatım.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer">
+    <div>AÇIK KAYNAKLI DİL MİMARİSİ • YEREL VE GİZLİ • MIT LİSANSI</div>
+    <div style="font-weight:700; color:#1C1917;">github.com/sahaptanrikulu/cumle-muhendisi</div>
+  </div>
+</body></html>

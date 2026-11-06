@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="UTF-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    width: 1600px; height: 900px; background: #050505;
+    background-image: linear-gradient(rgba(0, 255, 102, 0.03) 1px, transparent 1px);
+    background-size: 100% 4px;
+    font-family: ui-monospace, "Courier New", monospace;
+    color: #00FF66; padding: 48px 64px; display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .top { border-bottom: 1px solid #00FF66; padding-bottom: 16px; display: flex; justify-content: space-between; }
+  .term-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin: 24px 0; }
+  .term-box { border: 1px solid rgba(0,255,102,0.4); background: rgba(0,20,0,0.6); border-radius: 8px; padding: 24px; box-shadow: 0 0 20px rgba(0,255,102,0.1); }
+  .cmd { color: #FFFFFF; font-weight: bold; margin-bottom: 14px; }
+  .output { line-height: 1.6; font-size: 14.5px; }
+  .footer { border-top: 1px solid #00FF66; padding-top: 16px; display: flex; justify-content: space-between; font-size: 13.5px; }
+</style>
+</head><body>
+  <div class="top">
+    <div>>>> CUMLE_MUHENDISI_CLI v2.0 // STATUS: ONLINE</div>
+    <div>SYS_LANG: TR-TR • AST_PARSER: ACTIVE</div>
+  </div>
+  <div class="term-grid">
+    <div class="term-box" style="border-color:#FF3366; color:#FF3366;">
+      <div class="cmd">$ cumle-muhendisi audit --target=raw_ai.md</div>
+      <div class="output">
+        [FAIL] 4 CRITICAL VIOLATIONS DETECTED:<br><br>
+        > "Şirketimiz dijital dönüşüm kapsamında önemli bir adım atmaktadır ve bulut altyapımızın kurulması süreçlerin yürütülmesine katkı sağlamaktadır..."<br><br>
+        - [P0] Light-Verb Inflation: "katkı sağlamak"<br>
+        - [P0] Monotonous Suffix: 100% "-mektedir"<br>
+        - [P1] English Calque: Right-Branching Subclause<br>
+        - [P2] Rhythm CoV: 0.14 (Machine Metronome Alarm)
+      </div>
+    </div>
+    <div class="term-box" style="border-color:#00FF66; color:#00FF66;">
+      <div class="cmd">$ cumle-muhendisi rebuild --stream --clean</div>
+      <div class="output">
+        [SUCCESS] REBUILT TO NATURAL TURKISH SYNTAX:<br><br>
+        > "Şirket içi dijital altyapımızı buluta taşıyarak günlük işlerimizi çok daha hızlı ve pürüzsüz yürütmeye başladık."<br><br>
+        + [PASS] Sola Dallanma Sentaksı Uygulandı<br>
+        + [PASS] Ulaç Sistemiyle Akıcılık Sağlandı<br>
+        + [PASS] Burstiness CoV: 0.58 (Canlı İnsan Ritmi)<br>
+        + [PASS] Olgusal Sadakat: Sıfır Halüsinasyon
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div>ROOT ACCESS: LOCAL ONLY • ZERO TELEMETRY • MIT LICENSE</div>
+    <div>git clone https://github.com/sahaptanrikulu/cumle-muhendisi</div>
+  </div>
+</body></html>

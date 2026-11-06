@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="UTF-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    width: 1600px; height: 900px; display: flex; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+  .side { width: 50%; height: 100%; padding: 60px; display: flex; flex-direction: column; justify-content: space-between; position: relative; }
+  .side-left { background: #111827; color: #F8FAFC; border-right: 2px solid #DC2626; }
+  .side-right { background: #042F2E; color: #F0FDF4; }
+  .badge { font-size: 13px; font-weight: 800; padding: 6px 14px; border-radius: 6px; display: inline-block; text-transform: uppercase; }
+  .badge-l { background: rgba(220, 38, 38, 0.2); color: #F87171; border: 1px solid rgba(220,38,38,0.4); }
+  .badge-r { background: rgba(16, 185, 129, 0.2); color: #34D399; border: 1px solid rgba(16,185,129,0.4); }
+  .big-text { font-size: 40px; font-weight: 900; margin: 20px 0 10px; line-height: 1.1; }
+  .sample { background: rgba(0,0,0,0.3); border-radius: 12px; padding: 22px; font-size: 16px; line-height: 1.6; margin: 20px 0; }
+  .list { display: flex; flex-direction: column; gap: 12px; font-size: 15.5px; }
+  .divider-laser { position: absolute; right: -15px; top: 50%; transform: translateY(-50%); width: 30px; height: 60px; background: #000; border: 2px solid #38BDF8; border-radius: 9999px; display: flex; align-items: center; justify-content: center; font-weight: 900; color: #38BDF8; z-index: 10; box-shadow: 0 0 20px #38BDF8; }
+</style>
+</head><body>
+  <div class="side side-left">
+    <div class="divider-laser">➔</div>
+    <div>
+      <div class="badge badge-l">YAPAY ZEKA SOĞUKLUĞU</div>
+      <div class="big-text" style="color:#FCA5A5;">Kalıpların Esiri.</div>
+      <p style="color:#94A3B8; font-size:15px;">Mekanik, tekdüze ve çeviri kokan satırlar.</p>
+    </div>
+    <div class="sample" style="border-left:4px solid #EF4444; color:#FCA5A5;">
+      "Şirketimiz dijital dönüşüm kapsamında önemli bir adım atmaktadır ve bulut altyapımızın kurulması süreçlerin yürütülmesine katkı sağlamaktadır..."
+    </div>
+    <div class="list" style="color:#94A3B8;">
+      <div>✕ 15-20 kelimelik mekanik cümle hapishanesi</div>
+      <div>✕ İngilizce düşünülüp arkadan dolandırılan anlatım</div>
+      <div>✕ Kof yardımcı fiillerle şişirilmiş memur dili</div>
+      <div>✕ Sonu gelmeyen -mektedir / -maktadır tekdüzeliği</div>
+    </div>
+    <div style="font-size:13px; color:#64748B;">HANTAL VE ROBOTİK ÇIKTI</div>
+  </div>
+  <div class="side side-right">
+    <div>
+      <div class="badge badge-r">CÜMLE MÜHENDİSİ DOKUNUŞU</div>
+      <div class="big-text" style="color:#6EE7B7;">Özgür & Yaşayan Dil.</div>
+      <p style="color:#A7F3D0; font-size:15px;">Öz Türkçe mimarisi ve canlı insan ritmi.</p>
+    </div>
+    <div class="sample" style="border-left:4px solid #10B981; color:#D1FAE5; font-weight:600;">
+      "Şirket içi dijital altyapımızı buluta taşıyarak günlük işlerimizi çok daha hızlı ve pürüzsüz yürütmeye başladık."
+    </div>
+    <div class="list" style="color:#A7F3D0;">
+      <div>✓ Kısa hüküm cümleleri ve ulaçlı akıcı uzunluk dengesi</div>
+      <div>✓ Doğrudan hedefe bağlanan sola dallı Türkçe sentaksı</div>
+      <div>✓ Fazlalıklardan arınmış aktif ve güçlü eylemler</div>
+      <div>✓ Olgusal sadakat: Gerçek verileri ve teknik terimleri koruma</div>
+    </div>
+    <div style="display:flex; justify-content:space-between; align-items:center; font-size:13px; color:#6EE7B7; font-weight:700;">
+      <span>github.com/sahaptanrikulu/cumle-muhendisi</span>
+      <span>v2.0 AÇIK KAYNAK</span>
+    </div>
+  </div>
+</body></html>
