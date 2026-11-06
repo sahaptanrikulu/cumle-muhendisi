@@ -82,8 +82,29 @@ Piyasadaki bazı metin insanileştirme araçları metni doğallaştıracağım d
 Cümle Mühendisi'ni kullanmak için yazılımcı olmanıza hiç gerek yok. Bilgisayarınıza indirip hemen kullanabileceğiniz 3 son derece pratik yol vardır:
 
 1. **Yol (En Kolay Yol — 10 Saniye):** İndirdiğiniz klasördeki **`CHATGPT_TALIMATI.txt`** dosyasını açıp içindekileri kopyalayın. ChatGPT, Claude veya DeepSeek'in *"Özel Talimatlar"* (Custom Instructions) kutusuna yapıştırın. Yapay zeka artık robot kalıplarını tamamen terk edip yaşayan bir insan gibi yazar.
-2. **Yol (Görsel Masaüstü Ekranı):** Klasördeki **`arayuz.html`** dosyasına çift tıklayın. Chrome veya Edge'de anında açılır; kurulum veya internet gerekmez. Metninizi sol kutuya yapıştırıp *"Metni Denetle"* butonuna basarak tüm kusurları renkli olarak görün.
+2. **Yol (Görsel Masaüstü Ekranı):** Klasördeki **`arayuz.html`** dosyasına çift tıklayın. Chrome veya Edge'de anında açılır; kurulum veya internet gerekmez. Metninizi sol kutuya yapıştırıp *"Metni Denetle"* butonuna basın. Sağ tarafta iki yüzde çıkar: **ritim doğallığı** ve **yapay zeka izi**. Kırmızı çıkan kısmı düzeltmek için *"Onar & Yeniden Yaz"* butonuna basmanız yeterli; metin klişelerden arınmış hâliyle önünüze gelir.
 3. **Yol (Windows Sürükle-Bırak):** Metin belgenizi klasördeki **`metni_tara.bat`** dosyasının üzerine sürükleyip bırakın; sistem saniyeler içinde analiz raporunu ekrana döker.
+
+---
+
+### Arayüz Ne Gösteriyor?
+
+![Cümle Mühendisi denetim masası](assets/arayuz-onizleme-1-denetim.png)
+
+Denetim masası iki sayıyı yüzde olarak veriyor, gerisini kendisi hallediyor:
+
+| Gösterge | Ne Anlatıyor | İyi Durum |
+|---|---|---|
+| **Ritim Doğallığı** | Cümle boylarının ne kadar değiştiği. Hepsi aynı uzunluktaysa metin tekdüze okunur. | %67 ve üzeri |
+| **Yapay Zeka İzi** | Metindeki klişe kalıpların kelimeye oranı. | %0 |
+
+Üç sekme var:
+
+1. **Denetim Raporu:** Yüzdeler, cümle boyu dalgalanma grafiği ve bulunan her kusurun gerekçeli listesi.
+2. **Onarım:** "Önce" ve "Sonra" yüzdelerini yan yana koyar. Metindeki `-maktadır` zincirleri `-yor`'a çevrilir, "adeta", "söz konusu" gibi dolgular silinir, ingilizce kalıplar ("sadece ... değil, aynı zamanda") Türkçe kurulur, uzun cümleler bağlaç yerinden bölünür. Sonucu kopyalayabilir ya da doğrudan editöre aktarabilirsiniz.
+3. **Cümle Röntgeni:** Her cümleyi kelime sayısı, ritim tipi ve kusurlu/temiz etiketiyle tek tek listeler.
+
+Onarım kurala dayalı çalışır. Anlamı yeniden kurmaz, var olan Türkçe hatayı düzeltir; bu yüzden çıktıyı her zaman bir kez gözden geçirin.
 
 ---
 
