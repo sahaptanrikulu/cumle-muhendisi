@@ -2,8 +2,8 @@
 name: cumle-muhendisi
 version: 2.0.0
 description: |
-  Cümle Mühendisi: Türkçe metinlerdeki yapay zeka (AI) yazım izlerini, çeviri kokusunu
-  ve metronomik ritmi tespit edip doğal, akıcı ve insan elinden çıkmış Türkçe mimariye dönüştürür.
+  Cümle Mühendisi: Türkçe metinlerdeki yapay zeka (AI) izlerini, gereksiz laf kalabalığını,
+  fazla uzun cümleleri ve sıradanlaşmış robotik kalıpları tespit edip doğal, akıcı insan diline dönüştürür.
   Üç uzman kaynağın (tahiryildiz/insanca + bushrabeg/turkce-humanizer + yucezerey/turkish-anti-ai-skill)
   ve Sektörel Teknik Çeviri Protokolünün eksiksiz sentezidir: 48 kalıp + 25 ritim kuralı, 5 mutlak yasak,
   5 register kategorisi, olgusal sadakat kilidi (anti-fabrication), sola dallanma sentaksı, ulaç sistemi,

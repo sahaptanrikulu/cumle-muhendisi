@@ -4,7 +4,7 @@
   <img src="assets/cumle-muhendisi-banner.png" alt="Cümle Mühendisi Tanıtım Kartı" width="100%">
 </p>
 
-Cümle Mühendisi, yapay zekanın yazdığı Türkçe metinlerdeki o soğuk, resmi daire havasını ve tercüme kokusunu temizleyen bir dil mimarisi ve redaksiyon aracıdır.
+Cümle Mühendisi; Türkçe metinlerdeki yapay zeka izlerini, gereksiz laf kalabalığını, fazla uzun cümleleri, tekrar eden sıradanlaşmış kalıpları, makyajlı plaza dilini ve gereksiz noktalama işaretlerini temizleyen açık kaynaklı bir dil mimarisi ve düzeltme motorudur.
 
 Piyasadaki birçok araç sadece kelimeleri eşanlamlılarıyla değiştirip işin içinden çıkar. Cümle Mühendisi ise kelimelerle vakit kaybetmek yerine doğrudan cümlenin çatısına odaklanır. Türkçenin kendi mantığına uymayan yapıları düzeltir, yapay zekanın ezberlediği kalıpları ayıklar ve yazıyı yaşayan bir insanın kaleminden çıkmış gibi akıcı hale getirir.
 

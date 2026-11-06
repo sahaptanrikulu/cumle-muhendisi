@@ -30,7 +30,7 @@ Yapay zeka istisnasız her cümlesini 15-20 kelime arasına hapseder. İnsan dil
   *(Cümle kelime sayıları: 4 - 17. Burstiness CoV: 0,62 — canlı insan ritmi)*
 * **Test Analizi:**  
   * Cümle Ritmi Çeşitliliği (Burstiness CoV) 0,08'den 0,62'ye çıktı.  
-  * Okurun zihnini yoran tekdüze metronomik yapı tamamen kırıldı.
+  * Okurun zihnini yoran tekdüze, mekanik yapı tamamen kırıldı.
 
 ---
 
