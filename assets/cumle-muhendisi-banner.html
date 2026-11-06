@@ -2,7 +2,7 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
-  <title>Cümle Mühendisi - Tanıtım Kartı</title>
+  <title>Cümle Mühendisi Analitik Paneli - Beyaz & Siyah Minimalist</title>
   <style>
     * {
       box-sizing: border-box;
@@ -11,18 +11,18 @@
     }
     body {
       width: 1600px;
-      height: 980px;
-      background-color: #F8F9F7;
+      height: 900px;
+      background-color: #FFFFFF;
       background-image: 
-        radial-gradient(circle at 50% 0%, rgba(37, 99, 235, 0.04) 0%, transparent 60%),
-        radial-gradient(#E2E8F0 1.2px, transparent 1.2px);
-      background-size: 100% 100%, 28px 28px;
+        radial-gradient(circle at 50% 0%, rgba(0, 0, 0, 0.02) 0%, transparent 60%),
+        radial-gradient(#E4E4E7 1.2px, transparent 1.2px);
+      background-size: 100% 100%, 24px 24px;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      color: #0F172A;
+      color: #09090B;
+      padding: 44px 56px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: 44px 56px;
       overflow: hidden;
     }
 
@@ -31,272 +31,288 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      border-bottom: 1.5px solid rgba(15, 23, 42, 0.08);
-      padding-bottom: 24px;
+      border-bottom: 2px solid #18181B;
+      padding-bottom: 20px;
     }
     .header-left {
       display: flex;
       align-items: center;
-      gap: 20px;
+      gap: 16px;
     }
     .logo-badge {
-      width: 60px;
-      height: 60px;
-      background: #0F172A;
-      border-radius: 14px;
+      width: 48px;
+      height: 48px;
+      background: #09090B;
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+      color: #FFFFFF;
+      font-size: 24px;
     }
-    .logo-badge svg {
-      width: 34px;
-      height: 34px;
-      fill: none;
-      stroke: #38BDF8;
-      stroke-width: 2.2;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-    .brand-title {
-      font-size: 38px;
-      font-weight: 850;
-      letter-spacing: -0.8px;
-      color: #0F172A;
-      display: flex;
-      align-items: baseline;
-      gap: 12px;
-    }
-    .brand-version {
-      font-size: 15px;
-      font-weight: 700;
-      background: #E0E7FF;
-      color: #3730A3;
-      padding: 3px 10px;
-      border-radius: 20px;
-      letter-spacing: 0;
-    }
-    .brand-subtitle {
-      font-size: 15px;
-      font-weight: 600;
-      color: #64748B;
-      margin-top: 3px;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-    }
-    .header-right {
+    .header-title {
+      font-size: 30px;
+      font-weight: 900;
+      letter-spacing: -0.6px;
+      color: #09090B;
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 12px;
     }
-    .status-badge {
+    .version-tag {
+      font-size: 13px;
+      font-weight: 800;
+      background: #F4F4F5;
+      color: #18181B;
+      border: 1px solid #D4D4D8;
+      padding: 3px 10px;
+      border-radius: 9999px;
+      letter-spacing: 0;
+    }
+    .header-sub {
+      font-size: 13px;
+      font-weight: 700;
+      color: #71717A;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+    .header-badge {
       display: flex;
       align-items: center;
       gap: 8px;
-      background: #ECFDF5;
-      border: 1px solid #A7F3D0;
-      color: #065F46;
-      font-size: 14px;
-      font-weight: 650;
-      padding: 8px 16px;
+      background: #FFFFFF;
+      border: 1.5px solid #18181B;
+      color: #09090B;
+      font-size: 13px;
+      font-weight: 800;
+      padding: 8px 18px;
       border-radius: 9999px;
+      letter-spacing: 0.5px;
     }
-    .status-dot {
+    .badge-dot {
       width: 8px;
       height: 8px;
-      background: #10B981;
+      background: #18181B;
       border-radius: 50%;
     }
 
-    /* MAIN COMPARISON */
-    .comparison-container {
-      display: flex;
-      align-items: stretch;
-      gap: 28px;
-      margin-top: 10px;
-      margin-bottom: 10px;
-      position: relative;
+    /* BENTO GRID */
+    .bento-grid {
+      display: grid;
+      grid-template-columns: 1.95fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 22px;
+      margin: 20px 0;
     }
-    .compare-card {
-      flex: 1;
+
+    /* CARDS */
+    .b-card {
       background: #FFFFFF;
-      border-radius: 20px;
-      padding: 28px 32px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
-      border: 1.5px solid #E2E8F0;
+      border: 1.5px solid #E4E4E7;
+      border-radius: 18px;
+      padding: 26px 30px;
+      box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.04);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
-    .card-before {
-      border-color: #FECACA;
-      background: linear-gradient(180deg, #FFFDFD 0%, #FFFFFF 100%);
-    }
-    .card-after {
-      border-color: #A7F3D0;
-      background: linear-gradient(180deg, #F9FDFB 0%, #FFFFFF 100%);
-      box-shadow: 0 8px 30px rgba(16, 185, 129, 0.08);
-    }
-    .card-top {
+
+    .card-title-bar {
       display: flex;
       align-items: center;
       justify-content: space-between;
       margin-bottom: 16px;
     }
-    .pill {
-      font-size: 13px;
-      font-weight: 800;
-      padding: 5px 14px;
-      border-radius: 6px;
-      letter-spacing: 0.8px;
+    .card-section-label {
+      font-size: 12px;
+      font-weight: 850;
+      letter-spacing: 1.2px;
       text-transform: uppercase;
+      color: #71717A;
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
-    .pill-red {
-      background: #FEE2E2;
-      color: #B91C1C;
-    }
-    .pill-green {
-      background: #D1FAE5;
-      color: #047857;
-    }
-    .card-sub {
-      font-size: 14px;
-      font-weight: 600;
-      color: #64748B;
+    .card-section-label::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      background: #09090B;
+      border-radius: 50%;
+      display: inline-block;
     }
 
-    /* DIFF QUOTE BOX */
-    .quote-box {
+    /* DIFF SPLIT */
+    .diff-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+    .diff-box {
       border-radius: 12px;
-      padding: 16px 20px;
-      margin-bottom: 20px;
-      font-size: 14.5px;
-      line-height: 1.55;
+      padding: 18px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 1.5px solid #E4E4E7;
+      background: #FAFAFA;
     }
-    .quote-before {
-      background: #FEF2F2;
-      border-left: 4px solid #EF4444;
-      color: #7F1D1D;
+    .diff-box-before {
+      border-color: #FECACA;
+      background: #FFFBFB;
     }
-    .quote-after {
-      background: #ECFDF5;
-      border-left: 4px solid #10B981;
-      color: #064E3B;
-      font-weight: 550;
+    .diff-box-after {
+      border-color: #18181B;
+      background: #FFFFFF;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
     }
-    .quote-label {
+    .diff-tag-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+    .diff-tag {
       font-size: 11px;
-      font-weight: 800;
-      text-transform: uppercase;
+      font-weight: 850;
+      padding: 3px 8px;
+      border-radius: 4px;
       letter-spacing: 0.8px;
-      margin-bottom: 4px;
-      opacity: 0.75;
+      text-transform: uppercase;
+    }
+    .diff-tag-red {
+      background: #FEE2E2;
+      color: #DC2626;
+      border: 1px solid #FCA5A5;
+    }
+    .diff-tag-black {
+      background: #09090B;
+      color: #FFFFFF;
+    }
+    .diff-text {
+      font-size: 14.5px;
+      line-height: 1.6;
+      margin-bottom: 12px;
+      color: #3F3F46;
+    }
+    .diff-text-after {
+      color: #09090B;
+      font-weight: 600;
+    }
+    .diff-meta {
+      font-size: 12px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding-top: 10px;
+      border-top: 1px dashed #E4E4E7;
     }
 
-    /* LIST */
-    .item-list {
+    /* WAVEFORM SECTION */
+    .waveform-wrapper {
+      margin-top: 22px;
+      padding-top: 18px;
+      border-top: 1.5px solid #F4F4F5;
+    }
+    .waveform-title {
+      font-size: 12.5px;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: #18181B;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+    .waveform-svg {
+      width: 100%;
+      height: 90px;
+      background: #FAFAFA;
+      border: 1.5px solid #E4E4E7;
+      border-radius: 10px;
+      overflow: hidden;
+      display: block;
+    }
+    .waveform-legend {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      font-weight: 650;
+      margin-top: 6px;
+      color: #71717A;
+    }
+
+    /* METRIC CARDS */
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .m-tile {
+      background: #FAFAFA;
+      border: 1.5px solid #E4E4E7;
+      border-radius: 14px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .m-title {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: #71717A;
+    }
+    .m-num {
+      font-size: 44px;
+      font-weight: 950;
+      color: #09090B;
+      letter-spacing: -1.5px;
+      line-height: 1;
+      margin: 10px 0 6px;
+    }
+    .m-badge {
+      font-size: 12px;
+      font-weight: 750;
+      color: #09090B;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* ARCHITECTURE LIST */
+    .arch-list {
       list-style: none;
       display: flex;
       flex-direction: column;
       gap: 12px;
+      margin-top: 6px;
     }
-    .item-list li {
+    .arch-item {
       display: flex;
       align-items: flex-start;
-      gap: 12px;
-      font-size: 14.5px;
-      line-height: 1.45;
-      color: #334155;
-    }
-    .icon-badge {
-      width: 22px;
-      height: 22px;
-      min-width: 22px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 12px;
-      font-weight: 800;
-      margin-top: 1px;
-    }
-    .icon-red {
-      background: #FEE2E2;
-      color: #DC2626;
-    }
-    .icon-green {
-      background: #D1FAE5;
-      color: #059669;
-    }
-
-    /* CENTER ARROW */
-    .center-divider {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
       gap: 10px;
-      min-width: 44px;
+      font-size: 13.5px;
+      line-height: 1.45;
+      color: #27272A;
     }
-    .arrow-circle {
-      width: 46px;
-      height: 46px;
-      background: #0F172A;
+    .arch-icon {
+      width: 20px;
+      height: 20px;
+      min-width: 20px;
+      background: #09090B;
       color: #FFFFFF;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.2);
-    }
-    .arrow-circle svg {
-      width: 22px;
-      height: 22px;
-      fill: none;
-      stroke: #38BDF8;
-      stroke-width: 2.5;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-
-    /* BENTO FEATURES */
-    .bento-row {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-      margin-top: 10px;
-    }
-    .bento-card {
-      background: #FFFFFF;
-      border: 1.5px solid #E2E8F0;
-      border-radius: 14px;
-      padding: 16px 20px;
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
-    }
-    .bento-icon {
-      width: 42px;
-      height: 42px;
-      min-width: 42px;
-      background: #F1F5F9;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
-    }
-    .bento-text h4 {
-      font-size: 14px;
-      font-weight: 750;
-      color: #0F172A;
-      margin-bottom: 2px;
-    }
-    .bento-text p {
-      font-size: 12.5px;
-      color: #64748B;
-      line-height: 1.35;
+      font-size: 11px;
+      font-weight: 800;
+      margin-top: 1px;
     }
 
     /* FOOTER */
@@ -304,35 +320,31 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      border-top: 1.5px solid rgba(15, 23, 42, 0.08);
-      padding-top: 20px;
+      border-top: 2px solid #18181B;
+      padding-top: 18px;
       font-size: 13.5px;
-      color: #64748B;
+      color: #71717A;
     }
     .footer-left {
       display: flex;
       align-items: center;
       gap: 20px;
-    }
-    .footer-item {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-weight: 550;
+      font-weight: 600;
     }
     .footer-right {
       display: flex;
       align-items: center;
-      gap: 10px;
-      font-weight: 650;
-      color: #0F172A;
-      background: #F1F5F9;
-      padding: 8px 18px;
+      gap: 8px;
+      font-weight: 800;
+      color: #09090B;
+      background: #F4F4F5;
+      border: 1px solid #E4E4E7;
+      padding: 6px 16px;
       border-radius: 9999px;
     }
     .footer-right svg {
-      width: 18px;
-      height: 18px;
+      width: 16px;
+      height: 16px;
       fill: currentColor;
     }
   </style>
@@ -342,168 +354,150 @@
   <!-- HEADER -->
   <div class="header">
     <div class="header-left">
-      <div class="logo-badge">
-        <!-- Drafting Compass & Pen Icon -->
-        <svg viewBox="0 0 24 24">
-          <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
-          <circle cx="12" cy="12" r="3"/>
-        </svg>
-      </div>
+      <div class="logo-badge">📐</div>
       <div>
-        <div class="brand-title">
+        <div class="header-title">
           CÜMLE MÜHENDİSİ
-          <span class="brand-version">v2.0 Açık Kaynak</span>
+          <span class="version-tag">v2.0 Açık Kaynak</span>
         </div>
-        <div class="brand-subtitle">Yapay Zeka Metinlerini Robotik Soğukluktan Arındırıp Doğal Türkçe ile İnşa Eder</div>
+        <div class="header-sub">Türkçe İçin Dil Mimarisi ve Sentaks Analitik Paneli</div>
       </div>
     </div>
-    <div class="header-right">
-      <div class="status-badge">
-        <span class="status-dot"></span>
-        <span>Türkçe Dil ve Sentaks Motoru</span>
-      </div>
+    <div class="header-badge">
+      <span class="badge-dot"></span>
+      <span>DETERMINISTIC CLI & AST ENGINE</span>
     </div>
   </div>
 
-  <!-- MAIN COMPARISON (ÖNCE vs SONRA) -->
-  <div class="comparison-container">
+  <!-- BENTO GRID -->
+  <div class="bento-grid">
     
-    <!-- LEFT: ÖNCE -->
-    <div class="compare-card card-before">
+    <!-- LEFT LARGE CARD (Diff & Waveform) -->
+    <div class="b-card" style="grid-row: span 2;">
       <div>
-        <div class="card-top">
-          <span class="pill pill-red">ÖNCE</span>
-          <span class="card-sub">Robotik Kalıplar ve Yapay Zeka Kusurları</span>
+        <div class="card-title-bar">
+          <div class="card-section-label">CANLI DİFF VE CÜMLE DÖNÜŞÜMÜ</div>
+          <span style="font-size:12px; font-weight:700; color:#A1A1AA;">AST & RİTİM PROTOKOLÜ</span>
         </div>
-        <div class="quote-box quote-before">
-          <div class="quote-label">Örnek Ham Yapay Zeka Metni</div>
-          "Değerli çalışanlarımız, şirketimiz dijital dönüşüm kapsamında önemli bir adım atmaktadır ve bulut altyapımızın kurulması süreçlerin yürütülmesine katkı sağlamaktadır..."
-        </div>
-        <ul class="item-list">
-          <li>
-            <span class="icon-badge icon-red">✕</span>
-            <span><strong>Saatin tiktakı gibi tekdüzelik:</strong> İstisnasız her cümlenin 15-20 kelimelik aynı kalıba hapsolması.</span>
-          </li>
-          <li>
-            <span class="icon-badge icon-red">✕</span>
-            <span><strong>Arkadan dolanan cümleler:</strong> İngilizce gibi <em>"Bir yöntem geliştirdik, bu yöntem..."</em> diyerek uzatmak.</span>
-          </li>
-          <li>
-            <span class="icon-badge icon-red">✕</span>
-            <span><strong>Süslü memur dili:</strong> <em>"gerçekleştirilmektedir", "sağlanmaktadır", "önem taşımaktadır"</em> laf kalabalığı.</span>
-          </li>
-          <li>
-            <span class="icon-badge icon-red">✕</span>
-            <span><strong>Monoton ekler:</strong> Her cümlenin sonuna yapışan <em>-mektedir / -maktadır</em> kuruluğu.</span>
-          </li>
-          <li>
-            <span class="icon-badge icon-red">✕</span>
-            <span><strong>Yabancı noktalama izleri:</strong> Gövdeye saçılmış uzun tireler (—) ve bağlaç öncesi virgüller.</span>
-          </li>
-          <li>
-            <span class="icon-badge icon-red">✕</span>
-            <span><strong>Basmakalıp klişeler:</strong> <em>"Günün sonunda...", "Asıl mesele şu ki...", "Sonuç olarak..."</em></span>
-          </li>
-        </ul>
-      </div>
-    </div>
 
-    <!-- CENTER ARROW -->
-    <div class="center-divider">
-      <div class="arrow-circle">
-        <svg viewBox="0 0 24 24">
-          <line x1="5" y1="12" x2="19" y2="12"></line>
-          <polyline points="12 5 19 12 12 19"></polyline>
+        <div class="diff-container">
+          <!-- ÖNCE -->
+          <div class="diff-box diff-box-before">
+            <div>
+              <div class="diff-tag-row">
+                <span class="diff-tag diff-tag-red">ÖNCE: ROBOTİK KALIP</span>
+                <span style="font-size:11px; font-weight:700; color:#DC2626;">HAM ÇIKTI</span>
+              </div>
+              <p class="diff-text">
+                "Şirketimiz dijital dönüşüm kapsamında önemli bir adım atmaktadır ve bulut altyapımızın kurulması süreçlerin yürütülmesine katkı sağlamaktadır..."
+              </p>
+            </div>
+            <div class="diff-meta" style="color:#DC2626;">
+              <span>✕ CoV: 0.12 (Monoton)</span>
+              <span>•</span>
+              <span>%100 -mektedir Yoğunluğu</span>
+            </div>
+          </div>
+
+          <!-- SONRA -->
+          <div class="diff-box diff-box-after">
+            <div>
+              <div class="diff-tag-row">
+                <span class="diff-tag diff-tag-black">SONRA: CÜMLE MÜHENDİSİ</span>
+                <span style="font-size:11px; font-weight:800; color:#09090B;">ONARILMIŞ</span>
+              </div>
+              <p class="diff-text diff-text-after">
+                "Şirket içi dijital altyapımızı buluta taşıyarak günlük işlerimizi çok daha hızlı ve pürüzsüz yürütmeye başladık."
+              </p>
+            </div>
+            <div class="diff-meta" style="color:#09090B;">
+              <span>✓ CoV: 0.58 (Canlı İnsan Ritmi)</span>
+              <span>•</span>
+              <span>%0 Kof Fiil</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- WAVEFORM SECTION -->
+      <div class="waveform-wrapper">
+        <div class="waveform-title">
+          <span>CÜMLE UZUNLUĞU VE RİTİM DALGASI (BURSTINESS CoV)</span>
+          <span style="font-size:11px; color:#71717A; font-weight:700;">HEDEF &ge; 0.40</span>
+        </div>
+        <svg class="waveform-svg" viewBox="0 0 900 100" preserveAspectRatio="none">
+          <!-- Background reference grid lines -->
+          <line x1="0" y1="26" x2="900" y2="26" stroke="#E4E4E7" stroke-width="1" stroke-dasharray="4"/>
+          <line x1="0" y1="50" x2="900" y2="50" stroke="#D4D4D8" stroke-width="1.2"/>
+          <line x1="0" y1="74" x2="900" y2="74" stroke="#E4E4E7" stroke-width="1" stroke-dasharray="4"/>
+
+          <!-- Flat robot line (Red dashed) perfectly centered at Y=50 -->
+          <line x1="10" y1="50" x2="890" y2="50" stroke="#DC2626" stroke-width="2.4" stroke-dasharray="6"/>
+
+          <!-- Dynamic human rhythm wave (Solid deep ink black) within Y 24-74 safe zone -->
+          <path d="M 15 50 Q 120 22, 230 50 T 450 24 T 670 74 T 885 36" fill="none" stroke="#09090B" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
-      </div>
-    </div>
-
-    <!-- RIGHT: SONRA -->
-    <div class="compare-card card-after">
-      <div>
-        <div class="card-top">
-          <span class="pill pill-green">SONRA</span>
-          <span class="card-sub">Cümle Mühendisi ile Onarılmış Yaşayan Dil</span>
+        <div class="waveform-legend">
+          <span style="color:#DC2626;">-- Yapay Zeka: Düz, sığ ve tekdüze (CoV &lt; 0.30)</span>
+          <span style="color:#09090B; font-weight:800;">━ Cümle Mühendisi: Canlı, dalgalı insan ritmi (CoV &gt; 0.40)</span>
         </div>
-        <div class="quote-box quote-after">
-          <div class="quote-label">Cümle Mühendisi Çıktısı</div>
-          "Arkadaşlar, şirket içi dijital altyapımızı buluta taşıyarak önemli bir adım attık. Yeni sistem sayesinde günlük işlerimizi çok daha hızlı ve pürüzsüz yürütebileceğiz."
+      </div>
+    </div>
+
+    <!-- TOP RIGHT: METRIC TILES -->
+    <div class="b-card">
+      <div class="card-section-label">PERFORMANS VE DOĞRULAMA METRİKLERİ</div>
+      <div class="metrics-grid">
+        <div class="m-tile">
+          <div class="m-title">Ritim Çeşitliliği</div>
+          <div class="m-num">0.58</div>
+          <div class="m-badge">
+            <span style="color:#09090B;">✓</span> CoV &ge; 0.40 Eşiği Geçildi
+          </div>
         </div>
-        <ul class="item-list">
-          <li>
-            <span class="icon-badge icon-green">✓</span>
-            <span><strong>Canlı insan ritmi:</strong> Kısa vurucu cümleler ile ulaçlı akıcı uzun cümlelerin doğal harmanı.</span>
-          </li>
-          <li>
-            <span class="icon-badge icon-green">✓</span>
-            <span><strong>Doğrudan Türkçe sentaks:</strong> Lafı dolandırmadan doğrudan hedefe bağlanan cümle iskeleti.</span>
-          </li>
-          <li>
-            <span class="icon-badge icon-green">✓</span>
-            <span><strong>Aktif ve güçlü fiiller:</strong> Şişkin yardımcı fiilleri atıp doğrudan eylemi söyleyen temiz anlatım.</span>
-          </li>
-          <li>
-            <span class="icon-badge icon-green">✓</span>
-            <span><strong>Zengin yüklem kipleri:</strong> Yaşayan Türkçe zaman ve kiplerle çeşitlendirilmiş sonlar.</span>
-          </li>
-          <li>
-            <span class="icon-badge icon-green">✓</span>
-            <span><strong>TDK ve fonetik ek uyumu:</strong> Saat, yüzde ve yabancı teknik terimlerde kusursuz TDK standardı.</span>
-          </li>
-          <li>
-            <span class="icon-badge icon-green">✓</span>
-            <span><strong>Olgusal sadakat kilidi:</strong> Sahte hikaye veya istatistik uydurmadan gerçeğe ve teknik terimlere sadakat.</span>
-          </li>
-        </ul>
+        <div class="m-tile">
+          <div class="m-title">Kelime Tasarrufu</div>
+          <div class="m-num">%54</div>
+          <div class="m-badge">
+            <span style="color:#09090B;">✓</span> Boş Fiil Tasfiyesi
+          </div>
+        </div>
       </div>
     </div>
 
-  </div>
+    <!-- BOTTOM RIGHT: ARCHITECTURE CHECKLIST -->
+    <div class="b-card">
+      <div class="card-section-label">MİMARİ TEST ÇEKİRDEĞİ</div>
+      <ul class="arch-list">
+        <li class="arch-item">
+          <span class="arch-icon">✓</span>
+          <span><strong>Öz Türkçe Sola Dallanma:</strong> İngilizce çeviri kokusunu ulaç sistemiyle siler.</span>
+        </li>
+        <li class="arch-item">
+          <span class="arch-icon">✓</span>
+          <span><strong>Olgusal Sadakat Kilidi:</strong> Sahte bilgi veya istatistik uydurmaz, gerçeği korur.</span>
+        </li>
+        <li class="arch-item">
+          <span class="arch-icon">✓</span>
+          <span><strong>Sektörel Terim Kalkanı:</strong> SDI, NFPA, fire-rated gibi standartları bozmaz.</span>
+        </li>
+        <li class="arch-item">
+          <span class="arch-icon">✓</span>
+          <span><strong>TDK Tipografi Standardı:</strong> Saat, yüzde ve bağlaç noktalama kurallarına tam uyum.</span>
+        </li>
+      </ul>
+    </div>
 
-  <!-- BENTO MINI FEATURES -->
-  <div class="bento-row">
-    <div class="bento-card">
-      <div class="bento-icon">📐</div>
-      <div class="bento-text">
-        <h4>Öz Türkçe Mimarisi</h4>
-        <p>İngilizce çeviri kokusunu silip Türkçenin ulaç sistemiyle bağlar.</p>
-      </div>
-    </div>
-    <div class="bento-card">
-      <div class="bento-icon">⚡</div>
-      <div class="bento-text">
-        <h4>100+ Klişe Temizliği</h4>
-        <p>Yapay zekanın ezberlediği sahte bağlaç ve kalıpları ayıklar.</p>
-      </div>
-    </div>
-    <div class="bento-card">
-      <div class="bento-icon">🛡️</div>
-      <div class="bento-text">
-        <h4>Teknik Terim Sadakati</h4>
-        <p>SDI, NFPA, fire-rated gibi sektörel terimleri asla bozmaz.</p>
-      </div>
-    </div>
-    <div class="bento-card">
-      <div class="bento-icon">📊</div>
-      <div class="bento-text">
-        <h4>CLI Test Motoru</h4>
-        <p>Terminalden deterministik CoV ve ritim analizi yapar.</p>
-      </div>
-    </div>
   </div>
 
   <!-- FOOTER -->
   <div class="footer">
     <div class="footer-left">
-      <div class="footer-item">
-        <span>⚡ 100% Açık Kaynak</span>
-      </div>
-      <div class="footer-item">
-        <span>🔒 Tamamen Yerel ve Gizli</span>
-      </div>
-      <div class="footer-item">
-        <span>🤝 3 Değerli Çalışmanın Sentezi (insanca • turkce-humanizer • turkish-anti-ai)</span>
-      </div>
+      <span>⚡ %100 Açık Kaynak</span>
+      <span>•</span>
+      <span>🔒 Tamamen Yerel ve Gizli Mimari</span>
+      <span>•</span>
+      <span>MIT Lisansı</span>
     </div>
     <div class="footer-right">
       <svg viewBox="0 0 24 24">

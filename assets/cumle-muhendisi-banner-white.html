@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Cümle Mühendisi Analitik Paneli - Beyaz & Siyah Minimalist</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      width: 1600px;
+      height: 900px;
+      background-color: #FFFFFF;
+      background-image: 
+        radial-gradient(circle at 50% 0%, rgba(0, 0, 0, 0.02) 0%, transparent 60%),
+        radial-gradient(#E4E4E7 1.2px, transparent 1.2px);
+      background-size: 100% 100%, 24px 24px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: #09090B;
+      padding: 44px 56px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+    }
+
+    /* HEADER */
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px solid #18181B;
+      padding-bottom: 20px;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .logo-badge {
+      width: 48px;
+      height: 48px;
+      background: #09090B;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFFFFF;
+      font-size: 24px;
+    }
+    .header-title {
+      font-size: 30px;
+      font-weight: 900;
+      letter-spacing: -0.6px;
+      color: #09090B;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .version-tag {
+      font-size: 13px;
+      font-weight: 800;
+      background: #F4F4F5;
+      color: #18181B;
+      border: 1px solid #D4D4D8;
+      padding: 3px 10px;
+      border-radius: 9999px;
+      letter-spacing: 0;
+    }
+    .header-sub {
+      font-size: 13px;
+      font-weight: 700;
+      color: #71717A;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+    .header-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #FFFFFF;
+      border: 1.5px solid #18181B;
+      color: #09090B;
+      font-size: 13px;
+      font-weight: 800;
+      padding: 8px 18px;
+      border-radius: 9999px;
+      letter-spacing: 0.5px;
+    }
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+      background: #18181B;
+      border-radius: 50%;
+    }
+
+    /* BENTO GRID */
+    .bento-grid {
+      display: grid;
+      grid-template-columns: 1.95fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 22px;
+      margin: 20px 0;
+    }
+
+    /* CARDS */
+    .b-card {
+      background: #FFFFFF;
+      border: 1.5px solid #E4E4E7;
+      border-radius: 18px;
+      padding: 26px 30px;
+      box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.04);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card-title-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+    .card-section-label {
+      font-size: 12px;
+      font-weight: 850;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: #71717A;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .card-section-label::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      background: #09090B;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    /* DIFF SPLIT */
+    .diff-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+    .diff-box {
+      border-radius: 12px;
+      padding: 18px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 1.5px solid #E4E4E7;
+      background: #FAFAFA;
+    }
+    .diff-box-before {
+      border-color: #FECACA;
+      background: #FFFBFB;
+    }
+    .diff-box-after {
+      border-color: #18181B;
+      background: #FFFFFF;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+    }
+    .diff-tag-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+    .diff-tag {
+      font-size: 11px;
+      font-weight: 850;
+      padding: 3px 8px;
+      border-radius: 4px;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+    }
+    .diff-tag-red {
+      background: #FEE2E2;
+      color: #DC2626;
+      border: 1px solid #FCA5A5;
+    }
+    .diff-tag-black {
+      background: #09090B;
+      color: #FFFFFF;
+    }
+    .diff-text {
+      font-size: 14.5px;
+      line-height: 1.6;
+      margin-bottom: 12px;
+      color: #3F3F46;
+    }
+    .diff-text-after {
+      color: #09090B;
+      font-weight: 600;
+    }
+    .diff-meta {
+      font-size: 12px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding-top: 10px;
+      border-top: 1px dashed #E4E4E7;
+    }
+
+    /* WAVEFORM SECTION */
+    .waveform-wrapper {
+      margin-top: 22px;
+      padding-top: 18px;
+      border-top: 1.5px solid #F4F4F5;
+    }
+    .waveform-title {
+      font-size: 12.5px;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: #18181B;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+    .waveform-svg {
+      width: 100%;
+      height: 90px;
+      background: #FAFAFA;
+      border: 1.5px solid #E4E4E7;
+      border-radius: 10px;
+      overflow: hidden;
+      display: block;
+    }
+    .waveform-legend {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      font-weight: 650;
+      margin-top: 6px;
+      color: #71717A;
+    }
+
+    /* METRIC CARDS */
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .m-tile {
+      background: #FAFAFA;
+      border: 1.5px solid #E4E4E7;
+      border-radius: 14px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .m-title {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: #71717A;
+    }
+    .m-num {
+      font-size: 44px;
+      font-weight: 950;
+      color: #09090B;
+      letter-spacing: -1.5px;
+      line-height: 1;
+      margin: 10px 0 6px;
+    }
+    .m-badge {
+      font-size: 12px;
+      font-weight: 750;
+      color: #09090B;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* ARCHITECTURE LIST */
+    .arch-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 6px;
+    }
+    .arch-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 13.5px;
+      line-height: 1.45;
+      color: #27272A;
+    }
+    .arch-icon {
+      width: 20px;
+      height: 20px;
+      min-width: 20px;
+      background: #09090B;
+      color: #FFFFFF;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 800;
+      margin-top: 1px;
+    }
+
+    /* FOOTER */
+    .footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 2px solid #18181B;
+      padding-top: 18px;
+      font-size: 13.5px;
+      color: #71717A;
+    }
+    .footer-left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-weight: 600;
+    }
+    .footer-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 800;
+      color: #09090B;
+      background: #F4F4F5;
+      border: 1px solid #E4E4E7;
+      padding: 6px 16px;
+      border-radius: 9999px;
+    }
+    .footer-right svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-left">
+      <div class="logo-badge">📐</div>
+      <div>
+        <div class="header-title">
+          CÜMLE MÜHENDİSİ
+          <span class="version-tag">v2.0 Açık Kaynak</span>
+        </div>
+        <div class="header-sub">Türkçe İçin Dil Mimarisi ve Sentaks Analitik Paneli</div>
+      </div>
+    </div>
+    <div class="header-badge">
+      <span class="badge-dot"></span>
+      <span>DETERMINISTIC CLI & AST ENGINE</span>
+    </div>
+  </div>
+
+  <!-- BENTO GRID -->
+  <div class="bento-grid">
+    
+    <!-- LEFT LARGE CARD (Diff & Waveform) -->
+    <div class="b-card" style="grid-row: span 2;">
+      <div>
+        <div class="card-title-bar">
+          <div class="card-section-label">CANLI DİFF VE CÜMLE DÖNÜŞÜMÜ</div>
+          <span style="font-size:12px; font-weight:700; color:#A1A1AA;">AST & RİTİM PROTOKOLÜ</span>
+        </div>
+
+        <div class="diff-container">
+          <!-- ÖNCE -->
+          <div class="diff-box diff-box-before">
+            <div>
+              <div class="diff-tag-row">
+                <span class="diff-tag diff-tag-red">ÖNCE: ROBOTİK KALIP</span>
+                <span style="font-size:11px; font-weight:700; color:#DC2626;">HAM ÇIKTI</span>
+              </div>
+              <p class="diff-text">
+                "Şirketimiz dijital dönüşüm kapsamında önemli bir adım atmaktadır ve bulut altyapımızın kurulması süreçlerin yürütülmesine katkı sağlamaktadır..."
+              </p>
+            </div>
+            <div class="diff-meta" style="color:#DC2626;">
+              <span>✕ CoV: 0.12 (Monoton)</span>
+              <span>•</span>
+              <span>%100 -mektedir Yoğunluğu</span>
+            </div>
+          </div>
+
+          <!-- SONRA -->
+          <div class="diff-box diff-box-after">
+            <div>
+              <div class="diff-tag-row">
+                <span class="diff-tag diff-tag-black">SONRA: CÜMLE MÜHENDİSİ</span>
+                <span style="font-size:11px; font-weight:800; color:#09090B;">ONARILMIŞ</span>
+              </div>
+              <p class="diff-text diff-text-after">
+                "Şirket içi dijital altyapımızı buluta taşıyarak günlük işlerimizi çok daha hızlı ve pürüzsüz yürütmeye başladık."
+              </p>
+            </div>
+            <div class="diff-meta" style="color:#09090B;">
+              <span>✓ CoV: 0.58 (Canlı İnsan Ritmi)</span>
+              <span>•</span>
+              <span>%0 Kof Fiil</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- WAVEFORM SECTION -->
+      <div class="waveform-wrapper">
+        <div class="waveform-title">
+          <span>CÜMLE UZUNLUĞU VE RİTİM DALGASI (BURSTINESS CoV)</span>
+          <span style="font-size:11px; color:#71717A; font-weight:700;">HEDEF &ge; 0.40</span>
+        </div>
+        <svg class="waveform-svg" viewBox="0 0 900 100" preserveAspectRatio="none">
+          <!-- Background reference grid lines -->
+          <line x1="0" y1="26" x2="900" y2="26" stroke="#E4E4E7" stroke-width="1" stroke-dasharray="4"/>
+          <line x1="0" y1="50" x2="900" y2="50" stroke="#D4D4D8" stroke-width="1.2"/>
+          <line x1="0" y1="74" x2="900" y2="74" stroke="#E4E4E7" stroke-width="1" stroke-dasharray="4"/>
+
+          <!-- Flat robot line (Red dashed) perfectly centered at Y=50 -->
+          <line x1="10" y1="50" x2="890" y2="50" stroke="#DC2626" stroke-width="2.4" stroke-dasharray="6"/>
+
+          <!-- Dynamic human rhythm wave (Solid deep ink black) within Y 24-74 safe zone -->
+          <path d="M 15 50 Q 120 22, 230 50 T 450 24 T 670 74 T 885 36" fill="none" stroke="#09090B" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div class="waveform-legend">
+          <span style="color:#DC2626;">-- Yapay Zeka: Düz, sığ ve tekdüze (CoV &lt; 0.30)</span>
+          <span style="color:#09090B; font-weight:800;">━ Cümle Mühendisi: Canlı, dalgalı insan ritmi (CoV &gt; 0.40)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- TOP RIGHT: METRIC TILES -->
+    <div class="b-card">
+      <div class="card-section-label">PERFORMANS VE DOĞRULAMA METRİKLERİ</div>
+      <div class="metrics-grid">
+        <div class="m-tile">
+          <div class="m-title">Ritim Çeşitliliği</div>
+          <div class="m-num">0.58</div>
+          <div class="m-badge">
+            <span style="color:#09090B;">✓</span> CoV &ge; 0.40 Eşiği Geçildi
+          </div>
+        </div>
+        <div class="m-tile">
+          <div class="m-title">Kelime Tasarrufu</div>
+          <div class="m-num">%54</div>
+          <div class="m-badge">
+            <span style="color:#09090B;">✓</span> Boş Fiil Tasfiyesi
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BOTTOM RIGHT: ARCHITECTURE CHECKLIST -->
+    <div class="b-card">
+      <div class="card-section-label">MİMARİ TEST ÇEKİRDEĞİ</div>
+      <ul class="arch-list">
+        <li class="arch-item">
+          <span class="arch-icon">✓</span>
+          <span><strong>Öz Türkçe Sola Dallanma:</strong> İngilizce çeviri kokusunu ulaç sistemiyle siler.</span>
+        </li>
+        <li class="arch-item">
+          <span class="arch-icon">✓</span>
+          <span><strong>Olgusal Sadakat Kilidi:</strong> Sahte bilgi veya istatistik uydurmaz, gerçeği korur.</span>
+        </li>
+        <li class="arch-item">
+          <span class="arch-icon">✓</span>
+          <span><strong>Sektörel Terim Kalkanı:</strong> SDI, NFPA, fire-rated gibi standartları bozmaz.</span>
+        </li>
+        <li class="arch-item">
+          <span class="arch-icon">✓</span>
+          <span><strong>TDK Tipografi Standardı:</strong> Saat, yüzde ve bağlaç noktalama kurallarına tam uyum.</span>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-left">
+      <span>⚡ %100 Açık Kaynak</span>
+      <span>•</span>
+      <span>🔒 Tamamen Yerel ve Gizli Mimari</span>
+      <span>•</span>
+      <span>MIT Lisansı</span>
+    </div>
+    <div class="footer-right">
+      <svg viewBox="0 0 24 24">
+        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+      </svg>
+      <span>github.com/sahaptanrikulu/cumle-muhendisi</span>
+    </div>
+  </div>
+
+</body>
+</html>
