@@ -77,7 +77,17 @@ Piyasadaki bazı metin insanileştirme araçları metni doğallaştıracağım d
 
 ## Nasıl Kullanılır?
 
-Cümle Mühendisi üç farklı senaryoda çalışacak şekilde tasarlanmıştır:
+### 🚀 Hiçbir Kod / Yazılım Bilmeyenler İçin 3 Basit Yol
+
+Cümle Mühendisi'ni kullanmak için yazılımcı olmanıza hiç gerek yok. Bilgisayarınıza indirip hemen kullanabileceğiniz 3 son derece pratik yol vardır:
+
+1. **Yol (En Kolay Yol — 10 Saniye):** İndirdiğiniz klasördeki **`CHATGPT_TALIMATI.txt`** dosyasını açıp içindekileri kopyalayın. ChatGPT, Claude veya DeepSeek'in *"Özel Talimatlar"* (Custom Instructions) kutusuna yapıştırın. Yapay zeka artık robot kalıplarını tamamen terk edip yaşayan bir insan gibi yazar.
+2. **Yol (Görsel Masaüstü Ekranı):** Klasördeki **`arayuz.html`** dosyasına çift tıklayın. Chrome veya Edge'de anında açılır; kurulum veya internet gerekmez. Metninizi sol kutuya yapıştırıp *"Metni Denetle"* butonuna basarak tüm kusurları renkli olarak görün.
+3. **Yol (Windows Sürükle-Bırak):** Metin belgenizi klasördeki **`metni_tara.bat`** dosyasının üzerine sürükleyip bırakın; sistem saniyeler içinde analiz raporunu ekrana döker.
+
+---
+
+### Geliştiriciler ve Terminal Kullanıcıları İçin
 
 1. **Onarım Modu:** Elinizdeki hazır bir yapay zeka metnini ya da çeviriyi alır. Teknik doğruluğu ve ana fikri bozmadan baştan aşağı doğal Türkçeye çevirir.
 2. **Yazma Modu:** Sıfırdan bir konu hakkında yazı yazarken robot kalıplarına hiç girmeden doğrudan insan zihniyle metin üretir.

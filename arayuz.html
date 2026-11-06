@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cümle Mühendisi — Yerel Denetim ve Düzeltme Masası</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: #FAFAFA;
+      background-image: radial-gradient(#E4E4E7 1.2px, transparent 1.2px);
+      background-size: 24px 24px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: #09090B;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      background: #FFFFFF;
+      border-bottom: 2px solid #18181B;
+      padding: 18px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo-area { display: flex; align-items: center; gap: 14px; }
+    .logo-icon { width: 40px; height: 40px; background: #09090B; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #FFF; font-size: 20px; }
+    .logo-title { font-size: 22px; font-weight: 900; letter-spacing: -0.5px; }
+    .logo-desc { font-size: 12px; color: #71717A; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+    .badge-offline { background: #F4F4F5; border: 1.5px solid #18181B; padding: 6px 14px; border-radius: 9999px; font-size: 12px; font-weight: 800; }
+
+    main {
+      flex: 1;
+      max-width: 1400px;
+      width: 100%;
+      margin: 30px auto;
+      padding: 0 30px;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 28px;
+    }
+
+    .card {
+      background: #FFFFFF;
+      border: 1.5px solid #E4E4E7;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1.5px solid #F4F4F5;
+    }
+    .card-title { font-size: 14px; font-weight: 850; letter-spacing: 0.8px; text-transform: uppercase; color: #18181B; display: flex; align-items: center; gap: 8px; }
+    .card-title::before { content: ""; width: 7px; height: 7px; background: #09090B; border-radius: 50%; }
+
+    textarea {
+      width: 100%;
+      flex: 1;
+      min-height: 420px;
+      padding: 18px;
+      border: 1.5px solid #E4E4E7;
+      border-radius: 12px;
+      font-size: 15px;
+      line-height: 1.7;
+      font-family: inherit;
+      resize: vertical;
+      background: #FAFAFA;
+      color: #09090B;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    textarea:focus { border-color: #18181B; background: #FFFFFF; }
+
+    .btn-row { display: flex; gap: 12px; margin-top: 14px; }
+    button {
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 800;
+      padding: 10px 20px;
+      border-radius: 8px;
+      transition: all 0.15s;
+    }
+    .btn-primary { background: #09090B; color: #FFFFFF; border: 1.5px solid #09090B; }
+    .btn-primary:hover { background: #27272A; }
+    .btn-secondary { background: #FFFFFF; color: #09090B; border: 1.5px solid #D4D4D8; }
+    .btn-secondary:hover { background: #F4F4F5; }
+
+    /* RESULTS */
+    .metrics-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 20px; }
+    .metric-card { background: #FAFAFA; border: 1.5px solid #E4E4E7; border-radius: 12px; padding: 16px; }
+    .metric-label { font-size: 11.5px; font-weight: 800; text-transform: uppercase; color: #71717A; margin-bottom: 6px; }
+    .metric-val { font-size: 32px; font-weight: 950; color: #09090B; line-height: 1; }
+    .metric-status { font-size: 12px; font-weight: 700; margin-top: 6px; }
+
+    .status-good { color: #09090B; }
+    .status-bad { color: #DC2626; }
+
+    .findings-box {
+      flex: 1;
+      max-height: 380px;
+      overflow-y: auto;
+      border: 1.5px solid #E4E4E7;
+      border-radius: 12px;
+      padding: 16px;
+      background: #FAFAFA;
+    }
+    .finding-item {
+      padding: 10px 12px;
+      border-radius: 8px;
+      background: #FFFFFF;
+      border: 1px solid #E4E4E7;
+      margin-bottom: 10px;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+    .finding-item:last-child { margin-bottom: 0; }
+    .finding-badge { font-size: 10.5px; font-weight: 850; padding: 2px 6px; border-radius: 4px; display: inline-block; margin-bottom: 4px; text-transform: uppercase; }
+    .badge-p0 { background: #FEE2E2; color: #DC2626; }
+    .badge-p1 { background: #FEF3C7; color: #B45309; }
+    .badge-p2 { background: #E0E7FF; color: #4338CA; }
+
+    footer {
+      background: #FFFFFF;
+      border-top: 1.5px solid #E4E4E7;
+      padding: 16px 40px;
+      font-size: 13px;
+      color: #71717A;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo-area">
+      <div class="logo-icon">📐</div>
+      <div>
+        <div class="logo-title">Cümle Mühendisi</div>
+        <div class="logo-desc">Tek Tıkla Türkçe Yapay Zeka ve Sentaks Denetçisi</div>
+      </div>
+    </div>
+    <div class="badge-offline">🔒 %100 Çevrimdışı & Güvenli (Verileriniz Bilgisayarınızdan Çıkmaz)</div>
+  </header>
+
+  <main>
+    <!-- LEFT INPUT -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Metninizi Buraya Yapıştırın</div>
+        <span style="font-size:12px; color:#71717A; font-weight:600;" id="word-count">0 kelime / 0 cümle</span>
+      </div>
+      <textarea id="input-text" placeholder="Kontrol etmek istediğiniz Türkçe metni buraya yapıştırın veya yazın..."></textarea>
+      <div class="btn-row">
+        <button class="btn-primary" onclick="runAudit()">⚡ Metni Denetle</button>
+        <button class="btn-secondary" onclick="loadSample()">📋 Örnek Metin Yükle</button>
+        <button class="btn-secondary" onclick="clearAll()">🗑 Temizle</button>
+      </div>
+    </div>
+
+    <!-- RIGHT AUDIT RESULTS -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Denetim Sonuçları</div>
+        <span style="font-size:12px; font-weight:800;" id="health-tag">HAZIR</span>
+      </div>
+
+      <div class="metrics-row">
+        <div class="metric-card">
+          <div class="metric-label">Ritim Çeşitliliği (CoV)</div>
+          <div class="metric-val" id="cov-val">—</div>
+          <div class="metric-status" id="cov-status">Hedef: &ge; 0.40</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">Yapay Zeka İzleri</div>
+          <div class="metric-val" id="slop-val">—</div>
+          <div class="metric-status" id="slop-status">0 Hata Hedefi</div>
+        </div>
+      </div>
+
+      <div class="card-title" style="margin-bottom:10px; font-size:12.5px;">Tespit Edilen Kusurlar ve Çözüm Önerileri</div>
+      <div class="findings-box" id="findings-list">
+        <div style="color:#71717A; font-size:13.5px; text-align:center; padding:40px 0;">
+          Sol tarafa bir metin yapıştırıp <strong>"Metni Denetle"</strong> butonuna basın.
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div>Cümle Mühendisi v2.0 • Açık Kaynaklı Dil Mimarisi</div>
+    <div style="font-weight:700; color:#09090B;">github.com/sahaptanrikulu/cumle-muhendisi</div>
+  </footer>
+
+  <script>
+    const PATTERNS = [
+      { regex: /\b(yadsınamaz|inkar edilemez)\b/gi, label: "Robotik Klişe", desc: "'Yadsınamaz/inkar edilemez' kalıbı doğrudan İngilizce calque çeviridir. Bunun yerine doğrudan eylemi söyleyin.", level: "p0" },
+      { regex: /\badeta\b/gi, label: "Aşırı Benzetme", desc: "'Adeta' yapay zekanın en sık kullandığı dolgu kelimesidir, cümleden çıkarın.", level: "p1" },
+      { regex: /\bderinlemesine\s+(inmek|incelemek|bakmak|ele almak|analiz)\b/gi, label: "Çeviri Klişesi", desc: "'Delve into' kalıbından mirastır. Doğrudan 'inceledik' veya 'baktık' deyin.", level: "p0" },
+      { regex: /\b(kritik\s+(?:bir\s+)?(?:rol\s+oyna|öneme\s+sahip)|hayati\s+(?:bir\s+)?öneme\s+sahip)\b/gi, label: "Şişirme Kalıp", desc: "'Kritik öneme sahiptir' yerine 'şarttır', 'zorunludur' veya 'belirleyicidir' kullanın.", level: "p0" },
+      { regex: /\bgeniş\s+bir\s+yelpaze\b/gi, label: "Kalıp", desc: "'Geniş bir yelpaze' robotik çeviridir. 'Çok sayıda', 'farklı seçenekler' gibi doğal ifadeler seçin.", level: "p1" },
+      { regex: /\bsadece\s+[^,.!?]+?\s+değil,\s*aynı\s+zamanda\b/gi, label: "Ters Sentaks", desc: "'Not only... but also' İngilizce kalıbıdır. Türkçede iki hükmü ulaçla birbirine bağlayın.", level: "p0" },
+      { regex: /\b(çığır açan|dönüm noktası|kilometre taşı)\b/gi, label: "Şişirme Sıfat", desc: "Abartılı sıfatlar yapay zeka kokar. Somut kazanımı söyleyin.", level: "p1" },
+      { regex: /\b(bununla birlikte|öte yandan)\b/gi, label: "Mekanik Geçiş", desc: "Her cümlenin başına 'bununla birlikte' koymak yerine doğrudan fikri bağlayın.", level: "p1" },
+      { regex: /\b(belirtmek gerekir ki|unutulmamalıdır ki|vurgulamak gerekir ki)\b/gi, label: "Boş Dolgu", desc: "'...ki' yan cümleleri laf kalabalığıdır, cümleyi doğrudan yüklemle kurun.", level: "p1" },
+      { regex: /\b(söz konusu|bu bağlamda|bu doğrultuda|bahsi geçen)\b/gi, label: "Memur Dili", desc: "Ağır ve bürokratik plaza dili. 'Bu konuda', 'böylece' gibi yalın kelimeler seçin.", level: "p1" },
+      { regex: /\b(sonuç olarak|özetlemek gerekirse|son tahlilde)\b/gi, label: "Robotik Kapanış", desc: "Yapay zeka her metnin sonuna 'Sonuç olarak' ekler. Doğrudan fikri söyleyin.", level: "p1" },
+      { regex: /\b\w+mektedir\b|\b\w+maktadır\b/gi, label: "Kuru Monotonluk", desc: "'-mektedir / -maktadır' ekleri arka arkaya geldiğinde metni kurutur. Yaşayan şimdiki zaman (-iyor) veya geniş zaman kullanın.", level: "p0" },
+      { regex: /—/g, label: "Yabancı Noktalama", desc: "Uzun çizgi (em-dash '—') İngilizce alışkanlığıdır. TDK diyalog dışında yasaklar.", level: "p2" },
+      { regex: /,\s*(ama|fakat|lakin|veya|ya da)\b/gi, label: "TDK Noktalama Hatası", desc: "Türkçede 'ama, fakat, veya, ya da' bağlaçlarından önce virgül konmaz.", level: "p2" }
+    ];
+
+    function runAudit() {
+      const text = document.getElementById('input-text').value.trim();
+      if (!text) {
+        alert("Lütfen denetlenecek bir metin girin.");
+        return;
+      }
+
+      // Sentence splitting
+      const rawSentences = text.split(/[.!?]+(?:\s+|$)/).filter(s => s.trim().split(/\s+/).length > 1);
+      const totalWords = text.split(/\s+/).filter(Boolean).length;
+      document.getElementById('word-count').innerText = `${totalWords} kelime / ${rawSentences.length} cümle`;
+
+      // CoV calculation
+      let cov = 0;
+      if (rawSentences.length >= 2) {
+        const lengths = rawSentences.map(s => s.trim().split(/\s+/).length);
+        const mean = lengths.reduce((a, b) => a + b, 0) / lengths.length;
+        const variance = lengths.reduce((a, b) => a + Math.pow(b - mean, 2), 0) / (lengths.length - 1);
+        const stdev = Math.sqrt(variance);
+        cov = mean > 0 ? (stdev / mean) : 0;
+      }
+
+      const covEl = document.getElementById('cov-val');
+      const covStatus = document.getElementById('cov-status');
+      covEl.innerText = cov.toFixed(2);
+      if (cov >= 0.40) {
+        covEl.style.color = "#09090B";
+        covStatus.innerHTML = "✓ Canlı İnsan Ritmi (Doğal)";
+        covStatus.className = "metric-status status-good";
+      } else {
+        covEl.style.color = "#DC2626";
+        covStatus.innerHTML = "✕ Robotik & Tekdüze (Monoton)";
+        covStatus.className = "metric-status status-bad";
+      }
+
+      // Pattern matching
+      const findings = [];
+      for (const p of PATTERNS) {
+        const matches = text.match(p.regex);
+        if (matches) {
+          findings.push({
+            label: p.label,
+            count: matches.length,
+            sample: matches[0],
+            desc: p.desc,
+            level: p.level
+          });
+        }
+      }
+
+      const slopEl = document.getElementById('slop-val');
+      const slopStatus = document.getElementById('slop-status');
+      slopEl.innerText = findings.reduce((a, b) => a + b.count, 0);
+      if (findings.length === 0) {
+        slopEl.style.color = "#09090B";
+        slopStatus.innerHTML = "✓ Tertemiz, robotik kalıp yok";
+        slopStatus.className = "metric-status status-good";
+      } else {
+        slopEl.style.color = "#DC2626";
+        slopStatus.innerHTML = `✕ ${findings.length} farklı kalıp türü`;
+        slopStatus.className = "metric-status status-bad";
+      }
+
+      const listEl = document.getElementById('findings-list');
+      if (findings.length === 0) {
+        listEl.innerHTML = `
+          <div style="background:#F0FDF4; border:1px solid #BBF7D0; border-radius:8px; padding:20px; text-align:center;">
+            <div style="font-size:24px; margin-bottom:6px;">🎉</div>
+            <strong style="color:#166534; display:block; margin-bottom:4px;">Harika! Metinde yapay zeka kusuru bulunamadı.</strong>
+            <span style="font-size:13px; color:#15803D;">Metniniz öz Türkçe söz dizimine ve doğal insan ritmine uygun görünüyor.</span>
+          </div>
+        `;
+      } else {
+        let html = '';
+        findings.forEach(f => {
+          html += `
+            <div class="finding-item">
+              <span class="finding-badge badge-${f.level}">${f.label} (${f.count} adet)</span>
+              <div style="font-weight:700; color:#09090B; margin:2px 0;">Örnek: "${f.sample}"</div>
+              <div style="color:#52525B;">${f.desc}</div>
+            </div>
+          `;
+        });
+        listEl.innerHTML = html;
+      }
+
+      document.getElementById('health-tag').innerText = findings.length === 0 && cov >= 0.40 ? "KUSURSUZ" : "DÜZELTME GEREKİYOR";
+      document.getElementById('health-tag').style.color = findings.length === 0 && cov >= 0.40 ? "#09090B" : "#DC2626";
+    }
+
+    function loadSample() {
+      document.getElementById('input-text').value = 
+`Şirketimiz dijital dönüşüm kapsamında önemli bir adım atmaktadır ve bulut altyapımızın kurulması süreçlerin yürütülmesine katkı sağlamaktadır. 
+
+Sadece maliyetleri düşürmekle kalmayıp, aynı zamanda ekiplerimizin daha verimli çalışmasına olanak tanımaktadır. 
+
+Belirtmek gerekir ki — bu teknolojik hamle şirketimiz için çığır açan bir dönüm noktası niteliğindedir ve geniş bir yelpazede fayda sunacaktır, ancak çalışanlarımızın sürece uyum sağlaması kritik bir öneme sahiptir. 
+
+Sonuç olarak, projenin hayata geçirilmesi adeta yeni bir dönemin habercisidir.`;
+      runAudit();
+    }
+
+    function clearAll() {
+      document.getElementById('input-text').value = "";
+      document.getElementById('cov-val').innerText = "—";
+      document.getElementById('cov-status').innerText = "Hedef: ≥ 0.40";
+      document.getElementById('slop-val').innerText = "—";
+      document.getElementById('slop-status').innerText = "0 Hata Hedefi";
+      document.getElementById('word-count').innerText = "0 kelime / 0 cümle";
+      document.getElementById('health-tag').innerText = "HAZIR";
+      document.getElementById('findings-list').innerHTML = `
+        <div style="color:#71717A; font-size:13.5px; text-align:center; padding:40px 0;">
+          Sol tarafa bir metin yapıştırıp <strong>"Metni Denetle"</strong> butonuna basın.
+        </div>
+      `;
+    }
+  </script>
+</body>
+</html>
