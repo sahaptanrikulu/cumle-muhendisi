@@ -1,5 +1,9 @@
 # Cümle Mühendisi
 
+<p align="center">
+  <img src="assets/cumle-muhendisi-banner.png" alt="Cümle Mühendisi Tanıtım Kartı" width="100%">
+</p>
+
 Cümle Mühendisi, yapay zekanın yazdığı Türkçe metinlerdeki o soğuk, resmi daire havasını ve tercüme kokusunu temizleyen bir dil mimarisi ve redaksiyon aracıdır.
 
 Piyasadaki birçok araç sadece kelimeleri eşanlamlılarıyla değiştirip işin içinden çıkar. Cümle Mühendisi ise kelimelerle vakit kaybetmek yerine doğrudan cümlenin çatısına odaklanır. Türkçenin kendi mantığına uymayan yapıları düzeltir, yapay zekanın ezberlediği kalıpları ayıklar ve yazıyı yaşayan bir insanın kaleminden çıkmış gibi akıcı hale getirir.
@@ -52,6 +56,12 @@ Bir yazıyı robotun yazdığını anlamanın en kestirme yolu cümle sonlarına
 
 * **Cümle Mühendisi ile Onarılmış Hali:**  
   *"Başarı sadece körü körüne çok çalışmakla gelmiyor. Nereye gittiğini bilmek ve belirlediğin yolda sabırla yürümek işin asıl zor kısmı. Çoğu zaman ne yapacağını bilmek kadar ne zaman durup soluklanacağını kestirebilmek de fark yaratıyor."*
+
+### Detaylı Testler ve Karşılaştırmalı Örnekler Listesi
+
+Cümle Mühendisi'nin ele aldığı 6 temel işlevin (çeviri mantığını kırma, tekdüze ritmi canlandırma, kof memur dilini budama, monoton ekleri temizleme, yabancı noktalama işaretlerini ayıklama ve teknik terimleri koruma) öncesi/sonrası ve test analizleri için:
+
+👉 **[Örnekler ve Test Raporları Kılavuzu (references/ornekler-ve-testler.md)](references/ornekler-ve-testler.md)** belgesini inceleyebilirsiniz.
 
 ---
 
